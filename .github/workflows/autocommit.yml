@@ -7,7 +7,7 @@ on:
       - master
       
   schedule:
-  - cron: "0 7,9,11 * * 1,3" # See https://crontab.guru/#0_7,9,11_*_*_1,3
+  - cron: "0 */12 * * *" # See https://crontab.guru/#0_7,9,11_*_*_1,3
 
 jobs:
   auto_commit:
@@ -23,7 +23,7 @@ jobs:
       - name: Modify last update
         run: |
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
-          echo $d > LAST_UPDATED
+          echo Last update on $d > LAST_UPDATED.tsx
           
       - name: Commit changes
         run: |
@@ -31,16 +31,16 @@ jobs:
           git config --local user.name "PrastianHD"
           git add -A
           
-          arr[0]="chore(bot): 😂"
-          arr[1]="chore(bot): 😱"
-          arr[2]="chore(bot): 👿"
-          arr[3]="chore(bot): 💩"
-          arr[4]="chore(bot): 🙏"
-          arr[5]="chore(bot): 🙈"
-          arr[6]="chore(bot): 🐐"
-          arr[7]="chore(bot): 🤖"
-          arr[8]="chore(bot): 🟩"
-          arr[9]="chore(bot): 👻"
+          arr[0]="chore(bot): 💀"
+          arr[1]="chore(bot): 🎹"
+          arr[2]="chore(bot): 🎼"
+          arr[3]="chore(bot): ⚙️"
+          arr[4]="chore(bot): ⚔️"
+          arr[5]="chore(bot): 💜"
+          arr[6]="chore(bot): 🌸"
+          arr[7]="chore(bot): 💍"
+          arr[8]="chore(bot): ❄️"
+          arr[9]="chore(bot): 🫧"
           
           rand=$[$RANDOM % ${#arr[@]}]
           
